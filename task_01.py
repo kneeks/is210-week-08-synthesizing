@@ -12,14 +12,17 @@ F_Q = raw_input('Which base color, "Seattle Gray" or "Manatee"?: ').lower()
 if F_Q == 'manatee':
     BASE = 'Manatee'
     ACCENTS = ACCENTS[2:]
-    HIGHLIGHTS = HIGHLIGHTS[5:]
+    HIGHLIGHTS = HIGHLIGHTS[4:]
+    S_Q = ('Which accent color, "{}" or "{}"?: ').format(ACCENTS[0],
+                                                         ACCENTS[1])
 else:
     BASE = 'Seattle Gray'
-    ACCENTS = ACCENTS[:1]
+    ACCENTS = ACCENTS[:2]
     HIGHLIGHTS = HIGHLIGHTS[:4]
-
-S_Q = ('Which accent color, "{}" or "{}"?: ').format(ACCENTS[0],
-                                                     ACCENTS[1])
+    print ACCENTS
+    print HIGHLIGHTS
+    S_Q = ('Which accent color, "{}" or "{}"?: ').format(ACCENTS[0],
+                                                         ACCENTS[1])
 
 ACCENT = raw_input(S_Q)
 
