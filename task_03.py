@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 """Loan Calculator"""
 
-import decimal
+
+from decimal import Decimal
 
 
 N = raw_input('What is your name? ')
@@ -35,6 +36,7 @@ if ANS_Q == 'y':
         elif P >= 200000 and P <= 999999:
             INTEREST = 4.66
         else:
+            INTEREST = None
             print 'Error on years of loan being borrowed must be 20yrs or less.'
 else:
     if 0 < Y < 16:
@@ -43,6 +45,7 @@ else:
         elif P >= 200000 and P <= 999999:
             INTEREST = 3.98
         else:
+            INTEREST = None
             print 'Sorry, not pre-approved.'
     elif 15 < Y < 21:
         if P <= 199999:
@@ -50,18 +53,23 @@ else:
         elif P >= 200000 and P <= 999999:
             INTEREST = 4.08
         else:
+            INTEREST = None
             print 'Sorry, not pre-approved.'
     else:
         if P <= 199999:
             INTEREST = 6.39
         elif P >= 200000 and P <= 999999:
+            INTEREST = None
             print 'Sorry, not pre-approved.'
         else:
+            INTEREST = None
             print 'Sorry, not pre-approved.'
 
-R = (INTEREST / 100)
+R = Decimal(INTEREST / 100)
 
-TOTAL = int(round(P * ((1 + (decimal.Decimal(R / 12))) ** (12 * Y))))
+print R
+
+TOTAL = int(round(((P * ((1 + ((R / 12))) ** (12 * Y))))))
 
 REPORT = ('Loan Report for: {} \n'
           '------------------------------------------------------------------\n'
