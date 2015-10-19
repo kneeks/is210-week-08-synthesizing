@@ -15,6 +15,7 @@ MIN = int(TIME[2:])
 if (0 <= HR <= 24) and (0 <= MIN < 60):
     SNOOZE = True if (DAY == 'sat' or DAY == 'sun') or TIME < 600 else False
     if not SNOOZE:
+        SNOOZE = True
         print 'Beep! Beep! Beep! Beep! Beep!'
 else:
     print 'Error, re-evaluate.'
