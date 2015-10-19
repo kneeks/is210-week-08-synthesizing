@@ -59,7 +59,7 @@ else:
         else:
             print 'Sorry, not pre-approved.'
 
-R = decimal.Decimal(INTEREST / 100)
+R = (INTEREST / 100)
 
 TOTAL = int(round(P * ((1 + (decimal.Decimal(R / 12))) ** (12 * Y))))
 
