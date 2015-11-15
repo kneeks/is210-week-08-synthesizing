@@ -1,4 +1,5 @@
 
+
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """Loan Calculator"""
@@ -42,29 +43,25 @@ if ANS_Q == 'y':
 elif ANS_Q == 'n':
     if 0 < P <= 199999:
         if 0 < Y < 16:
-            INTEREST = Decimal('4.65')
+            INTEREST = Decimal('0.0465')
         elif 15 < Y < 21:
-            INTEREST = Decimal('3.98')
+            INTEREST = Decimal('0.0498')
+        elif 20 < Y < 31:
+            INTEREST = Decimal('0.0639')
         else:
             INTEREST = None
             print 'Sorry, not pre-approved.'
     elif P >= 200000 and P <= 999999:
         if 0 < Y < 16:
-            INTEREST = Decimal('4.98')
+            INTEREST = Decimal('0.0398')
         elif 15 < Y < 21:
-            INTEREST = Decimal('4.08')
+            INTEREST = Decimal('0.0408')
         else:
             INTEREST = None
             print 'Sorry, not pre-approved.'
     else:
-        if 0 < Y < 16:
-            INTEREST = Decimal('6.39')
-        elif 15 < Y < 21:
-            INTEREST = None
-            print 'Sorry, not pre-approved.'
-        else:
-            INTEREST = None
-            print 'Sorry, not pre-approved.'
+        INTEREST = None
+        print 'Sorry, not pre-approved.'
 else:
     INTEREST = None
 
@@ -72,6 +69,7 @@ if INTEREST is None:
     TOTAL = None
 
 else:
+    
     TOTAL = int(round(P * (1 + INTEREST / 12) ** (12 * Y)))
 
 REPORT = ('Loan Report for: {} \n'
