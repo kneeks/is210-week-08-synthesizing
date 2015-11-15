@@ -23,8 +23,10 @@ if ANS_Q == 'y':
             INTEREST = Decimal('0.0363')
         elif 15 < Y < 21:
             INTEREST = Decimal('0.0404')
-        else:
+        elif 20 < Y < 31:
             INTEREST = Decimal('0.0577')
+        else:
+            INTEREST = None
     elif P >= 200000 and P <= 999999:
         if 0 < Y < 16:
             INTEREST = Decimal('0.0302')
@@ -50,6 +52,7 @@ elif ANS_Q == 'n':
             INTEREST = Decimal('0.0639')
         else:
             INTEREST = None
+            
             print 'Sorry, not pre-approved.'
     elif P >= 200000 and P <= 999999:
         if 0 < Y < 16:
