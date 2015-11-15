@@ -1,3 +1,4 @@
+
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """Loan Calculator"""
@@ -18,23 +19,23 @@ ANS_Q = raw_input(PRE_Q)[:1].lower()
 if ANS_Q == 'y':
     if 0 < P <= 199999:
         if 0 < Y < 16:
-            INTEREST = Decimal('3.63')
+            INTEREST = Decimal('0.0363')
         elif 15 < Y < 21:
-            INTEREST = Decimal('3.02')
+            INTEREST = Decimal('0.0404')
         else:
-            INTEREST = Decimal('2.05')
+            INTEREST = Decimal('0.0577')
     elif P >= 200000 and P <= 999999:
         if 0 < Y < 16:
-            INTEREST = Decimal('4.04')
+            INTEREST = Decimal('0.0302')
         elif 15 < Y < 21:
-            INTEREST = Decimal('3.27')
+            INTEREST = Decimal('0.0327')
         else:
-            INTEREST = Decimal('2.62')
+            INTEREST = Decimal('0.0466')
     elif P > 999999:
         if 0 < Y < 16:
-            INTEREST = Decimal('5.77')
+            INTEREST = Decimal('0.0205')
         elif 15 < Y < 21:
-            INTEREST = Decimal('4.66')
+            INTEREST = Decimal('0.0262')
     else:
         INTEREST = None
         print 'Error on years of loan being borrowed must be 20yrs or less.'
@@ -71,9 +72,7 @@ if INTEREST is None:
     TOTAL = None
 
 else:
-    R = (INTEREST / 100)
-
-    TOTAL = int(round(P * (1 + R / 12) ** (12 * Y)))
+    TOTAL = int(round(P * (1 + INTEREST / 12) ** (12 * Y)))
 
 REPORT = ('Loan Report for: {} \n'
           '------------------------------------------------------------------\n'
