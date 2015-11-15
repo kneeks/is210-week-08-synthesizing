@@ -1,5 +1,3 @@
-
-
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """Loan Calculator"""
@@ -52,7 +50,6 @@ elif ANS_Q == 'n':
             INTEREST = Decimal('0.0639')
         else:
             INTEREST = None
-            
             print 'Sorry, not pre-approved.'
     elif P >= 200000 and P <= 999999:
         if 0 < Y < 16:
@@ -72,7 +69,6 @@ if INTEREST is None:
     TOTAL = None
 
 else:
-    
     TOTAL = int(round(P * (1 + INTEREST / 12) ** (12 * Y)))
 
 REPORT = ('Loan Report for: {} \n'
